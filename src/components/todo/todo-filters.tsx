@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, SortAsc, SortDesc } from 'lucide-react';
-import { TodoFilters } from '../types/todo';
+import type { TodoFilters } from '../types/todo';
 
 interface TodoFiltersProps {
   filters: TodoFilters;

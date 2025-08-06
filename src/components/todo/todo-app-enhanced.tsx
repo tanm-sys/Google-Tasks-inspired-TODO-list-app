@@ -1,27 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Plus, MoreVertical, Check, Trash2, Edit2, Calendar, Flag, Star, Clock, Archive, Sparkles } from 'lucide-react';
+import { Plus, Check, Trash2, Edit2, Star, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import { format, isToday, isTomorrow, isPast, addDays } from 'date-fns';
-import { toast } from 'sonner';
-import { useTodoStorage } from '@/hooks/use-todo-storage';
-import { Todo, TodoFilters } from '../types/todo';
-import { TaskStats } from './task-stats';
-import { TodoFilters as TodoFiltersComponent } from './todo-filters';
-
-export function TodoAppEnhanced() {
-  const { todos, isLoading, addTodo, updateTodo, deleteLet me continue with the enhanced TODO app:
-
-<dyad-write path="src/components/todo/todo-app-enhanced.tsx" description="Enhanced Todo App with all advanced features">
-"use client";
-
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Plus, MoreVertical, Check, Trash2, Edit2, Calendar, Flag, Star, Clock, Archive, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import { format, isToday, isTomorrow, isPast, addDays } from 'date-fns';
+import { motion, AnimatePresence } from 'framer-motion';
+import { format, isToday, isTomorrow, isPast } from 'date-fns';
 import { toast } from 'sonner';
 import { useTodoStorage } from '@/hooks/use-todo-storage';
 import { Todo, TodoFilters } from '../types/todo';
@@ -41,7 +24,6 @@ export function TodoAppEnhanced() {
   });
   
   const inputRef = useRef<HTMLInputElement>(null);
-  const controls = useAnimation();
 
   const sortedAndFilteredTodos = useMemo(() => {
     let filtered = todos;
@@ -346,7 +328,6 @@ function TodoItem({ todo, onToggle, onDelete, onToggleStar, onStartEdit, dueDate
   dueDateLabel?: string | null;
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [showActions, setShowActions] = useState(false);
 
   return (
     <motion.div

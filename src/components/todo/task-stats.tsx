@@ -36,7 +36,6 @@ export function TaskStats({ todos }: TaskStatsProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
           whileHover={{ scale: 1.02, y: -2 }}
-          transition={{ duration: 0.2 }}
         >
           <div className="flex items-center justify-between">
             <div>
