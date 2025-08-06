@@ -1,5 +1,5 @@
-import { TodoApp } from "@/components/todo/todo-app";
+import { TodoAppEnhanced } from "@/components/todo/todo-app-enhanced";
 
 export default function Home() {
-  return <TodoApp />;
+  return <TodoAppEnhanced />;
 }
