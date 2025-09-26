@@ -1,3 +1,8 @@
+/**
+ * A component that renders a "Made with Dyad" link.
+ * This is used to attribute the creation of the application to Dyad.
+ * @returns {JSX.Element} The rendered "Made with Dyad" link.
+ */
 export const MadeWithDyad = () => {
   return (
     <div className="p-4 text-center">

@@ -8,6 +8,14 @@ import { cn } from "@/lib/utils"
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
 
+/**
+ * Configuration for a chart.
+ * Each key represents a data series, and the value contains its display properties.
+ * @property {React.ReactNode} [label] - The label for the data series.
+ * @property {React.ComponentType} [icon] - An icon component for the data series.
+ * @property {string} [color] - A static color for the data series.
+ * @property {Record<keyof typeof THEMES, string>} [theme] - A map of theme names to colors for the data series.
+ */
 export type ChartConfig = {
   [k in string]: {
     label?: React.ReactNode
@@ -18,12 +26,25 @@ export type ChartConfig = {
   )
 }
 
+/**
+ * Props for the ChartContext.
+ * @property {ChartConfig} config - The chart configuration.
+ */
 type ChartContextProps = {
   config: ChartConfig
 }
 
+/**
+ * React context for sharing chart configuration.
+ */
 const ChartContext = React.createContext<ChartContextProps | null>(null)
 
+/**
+ * Hook to access the chart configuration from the context.
+ * Must be used within a `<ChartContainer />`.
+ * @throws {Error} If used outside of a `ChartContainer`.
+ * @returns {ChartContextProps} The chart context value.
+ */
 function useChart() {
   const context = React.useContext(ChartContext)
 
@@ -34,6 +55,18 @@ function useChart() {
   return context
 }
 
+/**
+ * A container for Recharts charts that provides a context with chart configuration
+ * and applies consistent styling.
+ * It forwards a ref to the underlying `div` element.
+ * @param {object} props - The props for the component.
+ * @param {string} [props.id] - An optional ID for the chart. A unique ID will be generated if not provided.
+ * @param {string} [props.className] - The class name for the container.
+ * @param {ChartConfig} props.config - The configuration for the chart.
+ * @param {React.ReactNode} props.children - The chart components from Recharts.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to forward to the container element.
+ * @returns {JSX.Element} The rendered chart container.
+ */
 const ChartContainer = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
@@ -67,6 +100,14 @@ const ChartContainer = React.forwardRef<
 })
 ChartContainer.displayName = "Chart"
 
+/**
+ * A component that generates and injects a `<style>` tag to apply chart colors
+ * from the configuration as CSS variables.
+ * @param {object} props - The props for the component.
+ * @param {string} props.id - The ID of the chart to apply the styles to.
+ * @param {ChartConfig} props.config - The chart configuration.
+ * @returns {JSX.Element | null} The rendered style element or null if no colors are configured.
+ */
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme || config.color
@@ -100,8 +141,24 @@ ${colorConfig
   )
 }
 
+/**
+ * A wrapper around the `RechartsPrimitive.Tooltip` component.
+ */
 const ChartTooltip = RechartsPrimitive.Tooltip
 
+/**
+ * A custom content component for the `ChartTooltip`.
+ * It provides a consistent and customizable tooltip for charts.
+ * It forwards a ref to the underlying `div` element.
+ * @param {object} props - The props for the component, including props from Recharts Tooltip.
+ * @param {boolean} [props.hideLabel=false] - Whether to hide the tooltip label.
+ * @param {boolean} [props.hideIndicator=false] - Whether to hide the color indicator for each item.
+ * @param {'line' | 'dot' | 'dashed'} [props.indicator='dot'] - The style of the color indicator.
+ * @param {string} [props.nameKey] - The key in the payload to use for the item name.
+ * @param {string} [props.labelKey] - The key in the payload to use for the tooltip label.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to forward to the tooltip container element.
+ * @returns {JSX.Element | null} The rendered tooltip content or null if the tooltip is not active.
+ */
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
@@ -256,8 +313,24 @@ const ChartTooltipContent = React.forwardRef<
 )
 ChartTooltipContent.displayName = "ChartTooltip"
 
+/**
+ * A wrapper around the `RechartsPrimitive.Legend` component.
+ */
 const ChartLegend = RechartsPrimitive.Legend
 
+/**
+ * A custom content component for the `ChartLegend`.
+ * It provides a consistent and customizable legend for charts.
+ * It forwards a ref to the underlying `div` element.
+ * @param {object} props - The props for the component.
+ * @param {boolean} [props.hideIcon=false] - Whether to hide the icon for each legend item.
+ * @param {string} [props.className] - The class name for the legend container.
+ * @param {RechartsPrimitive.LegendProps['payload']} [props.payload] - The payload for the legend, provided by Recharts.
+ * @param {'top' | 'bottom'} [props.verticalAlign='bottom'] - The vertical alignment of the legend.
+ * @param {string} [props.nameKey] - The key in the payload to use for the item name.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to forward to the legend container element.
+ * @returns {JSX.Element | null} The rendered legend content or null if there is no payload.
+ */
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
@@ -316,7 +389,14 @@ const ChartLegendContent = React.forwardRef<
 )
 ChartLegendContent.displayName = "ChartLegend"
 
-// Helper to extract item config from a payload.
+/**
+ * A helper function to extract the configuration for a specific item from the
+ * chart config based on the data payload provided by Recharts.
+ * @param {ChartConfig} config - The full chart configuration.
+ * @param {unknown} payload - The payload object for a specific item from Recharts.
+ * @param {string} key - The key to look for in the payload to identify the item's config.
+ * @returns {object | undefined} The configuration for the item, or undefined if not found.
+ */
 function getPayloadConfigFromPayload(
   config: ChartConfig,
   payload: unknown,

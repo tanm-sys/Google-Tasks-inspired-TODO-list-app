@@ -3,6 +3,20 @@
 import { useState, useEffect } from 'react';
 import { Todo } from '@/components/types/todo';
 
+/**
+ * A custom hook to manage todo items with local storage persistence.
+ * It handles loading todos from local storage, and provides functions to add,
+ * update, delete, and clear completed todos.
+ * @returns {{
+ *  todos: Todo[],
+ *  isLoading: boolean,
+ *  addTodo: (text: string) => Todo,
+ *  updateTodo: (id: string, updates: Partial<Todo>) => void,
+ *  deleteTodo: (id: string) => void,
+ *  clearCompleted: () => void,
+ *  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+ * }} An object containing the todos, loading state, and functions to manipulate the todos.
+ */
 export function useTodoStorage() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(true);

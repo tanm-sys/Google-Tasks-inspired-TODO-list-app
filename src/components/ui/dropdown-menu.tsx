@@ -6,18 +6,44 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * The root component for a dropdown menu.
+ */
 const DropdownMenu = DropdownMenuPrimitive.Root
 
+/**
+ * The component that triggers the dropdown menu to open.
+ */
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
+/**
+ * A component to group dropdown menu items.
+ */
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
 
+/**
+ * A component to portal the dropdown menu to a different part of the DOM.
+ */
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal
 
+/**
+ * A component to create a sub-menu within a dropdown menu.
+ */
 const DropdownMenuSub = DropdownMenuPrimitive.Sub
 
+/**
+ * A component to create a radio group within a dropdown menu.
+ */
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
+/**
+ * A component that triggers a sub-menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.SubTrigger` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the trigger should be inset.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu sub-trigger component.
+ */
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
@@ -40,6 +66,13 @@ const DropdownMenuSubTrigger = React.forwardRef<
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName
 
+/**
+ * The content of a sub-menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.SubContent` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.SubContent>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu sub-content component.
+ */
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
@@ -56,6 +89,13 @@ const DropdownMenuSubContent = React.forwardRef<
 DropdownMenuSubContent.displayName =
   DropdownMenuPrimitive.SubContent.displayName
 
+/**
+ * The content of a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.Content` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.Content>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu content component.
+ */
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
@@ -75,6 +115,14 @@ const DropdownMenuContent = React.forwardRef<
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
+/**
+ * An item in a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.Item` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the item should be inset.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.Item>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu item component.
+ */
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
@@ -93,6 +141,13 @@ const DropdownMenuItem = React.forwardRef<
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
+/**
+ * A checkbox item in a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.CheckboxItem` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu checkbox item component.
+ */
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
@@ -117,6 +172,13 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 DropdownMenuCheckboxItem.displayName =
   DropdownMenuPrimitive.CheckboxItem.displayName
 
+/**
+ * A radio item in a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.RadioItem` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu radio item component.
+ */
 const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
@@ -139,6 +201,14 @@ const DropdownMenuRadioItem = React.forwardRef<
 ))
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
 
+/**
+ * A label in a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.Label` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the label should be inset.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.Label>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu label component.
+ */
 const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
@@ -157,6 +227,13 @@ const DropdownMenuLabel = React.forwardRef<
 ))
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
 
+/**
+ * A separator in a dropdown menu.
+ * It forwards a ref to the underlying `DropdownMenuPrimitive.Separator` element.
+ * @param {React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof DropdownMenuPrimitive.Separator>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered dropdown menu separator component.
+ */
 const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
@@ -169,6 +246,11 @@ const DropdownMenuSeparator = React.forwardRef<
 ))
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
 
+/**
+ * A component to display a keyboard shortcut in a dropdown menu.
+ * @param {React.HTMLAttributes<HTMLSpanElement>} props - The props for the component.
+ * @returns {JSX.Element} The rendered dropdown menu shortcut component.
+ */
 const DropdownMenuShortcut = ({
   className,
   ...props

@@ -5,8 +5,18 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * A set of layered sections of content—known as tab panels—that are displayed one at a time.
+ */
 const Tabs = TabsPrimitive.Root
 
+/**
+ * A list of tab triggers.
+ * It forwards a ref to the underlying `TabsPrimitive.List` element.
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof TabsPrimitive.List>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered tabs list component.
+ */
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
@@ -22,6 +32,13 @@ const TabsList = React.forwardRef<
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
+/**
+ * A trigger that activates a tab.
+ * It forwards a ref to the underlying `TabsPrimitive.Trigger` element.
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof TabsPrimitive.Trigger>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered tabs trigger component.
+ */
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
@@ -37,6 +54,13 @@ const TabsTrigger = React.forwardRef<
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
+/**
+ * The content of a tab.
+ * It forwards a ref to the underlying `TabsPrimitive.Content` element.
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof TabsPrimitive.Content>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered tabs content component.
+ */
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>

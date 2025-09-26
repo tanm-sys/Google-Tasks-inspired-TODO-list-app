@@ -6,6 +6,13 @@ import { Minus } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * A component for one-time password (OTP) input.
+ * It forwards a ref to the underlying `OTPInput` element.
+ * @param {React.ComponentPropsWithoutRef<typeof OTPInput>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof OTPInput>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered OTP input component.
+ */
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
   React.ComponentPropsWithoutRef<typeof OTPInput>
@@ -22,6 +29,13 @@ const InputOTP = React.forwardRef<
 ))
 InputOTP.displayName = "InputOTP"
 
+/**
+ * A component to group OTP input slots.
+ * It forwards a ref to the underlying `div` element.
+ * @param {React.ComponentPropsWithoutRef<"div">} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<"div">>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered OTP input group component.
+ */
 const InputOTPGroup = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
@@ -30,6 +44,14 @@ const InputOTPGroup = React.forwardRef<
 ))
 InputOTPGroup.displayName = "InputOTPGroup"
 
+/**
+ * A component that represents a single slot in the OTP input.
+ * It forwards a ref to the underlying `div` element.
+ * @param {React.ComponentPropsWithoutRef<"div"> & { index: number }} props - The props for the component.
+ * @param {number} props.index - The index of the slot.
+ * @param {React.Ref<React.ElementRef<"div">>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered OTP input slot component.
+ */
 const InputOTPSlot = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div"> & { index: number }
@@ -58,6 +80,13 @@ const InputOTPSlot = React.forwardRef<
 })
 InputOTPSlot.displayName = "InputOTPSlot"
 
+/**
+ * A component to render a separator between OTP input slots.
+ * It forwards a ref to the underlying `div` element.
+ * @param {React.ComponentPropsWithoutRef<"div">} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<"div">>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered OTP input separator component.
+ */
 const InputOTPSeparator = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">

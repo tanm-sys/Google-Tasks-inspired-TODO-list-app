@@ -9,6 +9,13 @@ interface TodoFiltersProps {
   onFilterChange: (filters: TodoFilters) => void;
 }
 
+/**
+ * A component that provides UI controls for filtering and sorting the todo list.
+ * @param {TodoFiltersProps} props - The props for the component.
+ * @param {TodoFilters} props.filters - The current filter and sort settings.
+ * @param {(filters: TodoFilters) => void} props.onFilterChange - A callback function to be called when filter or sort settings are changed.
+ * @returns {JSX.Element} The rendered filter and sort controls.
+ */
 export function TodoFilters({ filters, onFilterChange }: TodoFiltersProps) {
   const filterOptions = [
     { value: 'all', label: 'All Tasks' },
@@ -79,6 +86,12 @@ export function TodoFilters({ filters, onFilterChange }: TodoFiltersProps) {
   );
 }
 
+/**
+ * A utility function to concatenate class names.
+ * It filters out any falsy values from the input array and joins the rest with a space.
+ * @param {...(string|undefined|null|false)} classes - The class names to concatenate.
+ * @returns {string} The concatenated class names.
+ */
 function cn(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(' ');
 }

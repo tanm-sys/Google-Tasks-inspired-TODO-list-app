@@ -11,6 +11,13 @@ import type { Todo, TodoFilters } from '../types/todo';
 import { TaskStats } from './task-stats';
 import { TodoFilters as TodoFiltersComponent } from './todo-filters';
 
+/**
+ * The main component for the enhanced todo application.
+ * It manages the state of the todo list, including adding, updating, deleting,
+ * and filtering todos. It also handles the UI for displaying the todo list,
+ * statistics, and filtering controls.
+ * @returns {JSX.Element} The rendered enhanced todo application.
+ */
 export function TodoAppEnhanced() {
   const { todos, isLoading, addTodo, updateTodo, deleteTodo, clearCompleted } = useTodoStorage();
   const [newTodo, setNewTodo] = useState('');
@@ -301,6 +308,24 @@ type RowProps = {
   dueDateLabel?: string | null;
 };
 
+/**
+ * A component that displays a single todo item in the list.
+ * It handles the display of the todo text, due date, and provides controls
+ * for toggling completion, starring, editing, and deleting the todo.
+ * @param {RowProps} props - The props for the component.
+ * @param {Todo} props.todo - The todo item to display.
+ * @param {string | null} props.editingId - The ID of the todo currently being edited.
+ * @param {string} props.editingText - The text of the todo currently being edited.
+ * @param {(id: string | null) => void} props.setEditingId - A function to set the ID of the todo being edited.
+ * @param {(text: string) => void} props.setEditingText - A function to set the text of the todo being edited.
+ * @param {(id: string) => void} props.onToggle - A function to toggle the completion status of a todo.
+ * @param {(id: string) => void} props.onDelete - A function to delete a todo.
+ * @param {(id: string) => void} props.onToggleStar - A function to toggle the starred status of a todo.
+ * @param {(id: string, text: string) => void} props.onStartEdit - A function to start editing a todo.
+ * @param {() => void} props.onSaveEdit - A function to save the edited todo.
+ * @param {string | null | undefined} props.dueDateLabel - The label for the due date of the todo.
+ * @returns {JSX.Element} The rendered todo row component.
+ */
 function TodoRow({
   todo,
   editingId,
