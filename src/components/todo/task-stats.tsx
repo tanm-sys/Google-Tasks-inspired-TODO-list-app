@@ -8,6 +8,13 @@ interface TaskStatsProps {
   todos: Todo[];
 }
 
+/**
+ * A component that displays statistics about the todo items.
+ * It shows the number of active, completed, starred, and total tasks.
+ * @param {TaskStatsProps} props - The props for the component.
+ * @param {Todo[]} props.todos - The list of todo items.
+ * @returns {JSX.Element} The rendered task statistics component.
+ */
 export function TaskStats({ todos }: TaskStatsProps) {
   const active = todos.filter(t => !t.completed).length;
   const completed = todos.filter(t => t.completed).length;

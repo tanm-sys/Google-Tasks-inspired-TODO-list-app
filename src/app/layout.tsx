@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Google Tasks Clone" }],
 };
 
+/**
+ * The root layout for the application.
+ * This component wraps all pages and provides the basic HTML structure.
+ * @param {Readonly<{children: React.ReactNode;}>} props - The props for the component.
+ * @param {React.ReactNode} props.children - The child components to render within the layout.
+ * @returns {JSX.Element} The rendered HTML structure.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

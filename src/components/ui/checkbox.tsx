@@ -6,6 +6,13 @@ import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * A control that allows the user to toggle between checked and not checked.
+ * It forwards a ref to the underlying `CheckboxPrimitive.Root` element.
+ * @param {React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof CheckboxPrimitive.Root>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered checkbox component.
+ */
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>

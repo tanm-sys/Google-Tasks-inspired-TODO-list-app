@@ -18,6 +18,12 @@ interface Todo {
   notes?: string;
 }
 
+/**
+ * The main component for the todo application.
+ * It manages the state of the todo list, including adding, updating, deleting,
+ * and filtering todos. It also handles the UI for displaying the todo list.
+ * @returns {JSX.Element} The rendered todo application.
+ */
 export function TodoApp() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState('');
@@ -264,6 +270,19 @@ export function TodoApp() {
   );
 }
 
+/**
+ * A component that displays a single todo item in the list.
+ * It handles the display of the todo text, due date, and provides controls
+ * for toggling completion, starring, editing, and deleting the todo.
+ * @param {object} props - The props for the component.
+ * @param {Todo} props.todo - The todo item to display.
+ * @param {(id: string) => void} props.onToggle - A function to toggle the completion status of a todo.
+ * @param {(id: string) => void} props.onDelete - A function to delete a todo.
+ * @param {(id: string) => void} props.onToggleStar - A function to toggle the starred status of a todo.
+ * @param {(id: string, text: string) => void} props.onStartEdit - A function to start editing a todo.
+ * @param {string | null | undefined} props.dueDateLabel - The label for the due date of the todo.
+ * @returns {JSX.Element} The rendered todo item component.
+ */
 function TodoItem({ todo, onToggle, onDelete, onToggleStar, onStartEdit, dueDateLabel }: {
   todo: Todo;
   onToggle: (id: string) => void;

@@ -1,5 +1,10 @@
 import { cn } from "@/lib/utils"
 
+/**
+ * A component to display a skeleton loader.
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - The props for the component.
+ * @returns {JSX.Element} The rendered skeleton component.
+ */
 function Skeleton({
   className,
   ...props

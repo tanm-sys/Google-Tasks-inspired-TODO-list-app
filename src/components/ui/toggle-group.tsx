@@ -7,6 +7,9 @@ import { type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { toggleVariants } from "@/components/ui/toggle"
 
+/**
+ * A React context to provide the variant and size of a toggle group to its items.
+ */
 const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants>
 >({
@@ -14,6 +17,13 @@ const ToggleGroupContext = React.createContext<
   variant: "default",
 })
 
+/**
+ * A set of two-state buttons that can be toggled on or off.
+ * It forwards a ref to the underlying `ToggleGroupPrimitive.Root` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProps<typeof toggleVariants>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ToggleGroupPrimitive.Root>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered toggle group component.
+ */
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
@@ -32,6 +42,13 @@ const ToggleGroup = React.forwardRef<
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName
 
+/**
+ * An item in a toggle group.
+ * It forwards a ref to the underlying `ToggleGroupPrimitive.Item` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & VariantProps<typeof toggleVariants>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ToggleGroupPrimitive.Item>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered toggle group item component.
+ */
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &

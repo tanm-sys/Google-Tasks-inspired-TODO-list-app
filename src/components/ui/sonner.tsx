@@ -2,8 +2,17 @@
 
 import { Toaster as Sonner } from "sonner"
 
+/**
+ * The props for the Toaster component.
+ */
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
+/**
+ * A component to display toast notifications.
+ * It is a wrapper around the `sonner` library.
+ * @param {ToasterProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered toaster component.
+ */
 const Toaster = ({ ...props }: ToasterProps) => {
   return (
     <Sonner

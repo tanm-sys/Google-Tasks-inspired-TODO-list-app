@@ -5,6 +5,13 @@ import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * A scrollable area with a custom scrollbar.
+ * It forwards a ref to the underlying `ScrollAreaPrimitive.Root` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ScrollAreaPrimitive.Root>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered scroll area component.
+ */
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
@@ -23,6 +30,13 @@ const ScrollArea = React.forwardRef<
 ))
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
 
+/**
+ * The scrollbar for a scroll area.
+ * It forwards a ref to the underlying `ScrollAreaPrimitive.ScrollAreaScrollbar` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered scrollbar component.
+ */
 const ScrollBar = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>

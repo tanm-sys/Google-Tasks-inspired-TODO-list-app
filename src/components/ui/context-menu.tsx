@@ -6,18 +6,44 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * The root component for a context menu.
+ */
 const ContextMenu = ContextMenuPrimitive.Root
 
+/**
+ * The component that triggers the context menu.
+ */
 const ContextMenuTrigger = ContextMenuPrimitive.Trigger
 
+/**
+ * A component to group context menu items.
+ */
 const ContextMenuGroup = ContextMenuPrimitive.Group
 
+/**
+ * A component to portal the context menu to a different part of the DOM.
+ */
 const ContextMenuPortal = ContextMenuPrimitive.Portal
 
+/**
+ * A component to create a sub-menu within a context menu.
+ */
 const ContextMenuSub = ContextMenuPrimitive.Sub
 
+/**
+ * A component to create a radio group within a context menu.
+ */
 const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup
 
+/**
+ * A component that triggers a sub-menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.SubTrigger` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the trigger should be inset.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu sub-trigger component.
+ */
 const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & {
@@ -39,6 +65,13 @@ const ContextMenuSubTrigger = React.forwardRef<
 ))
 ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName
 
+/**
+ * The content of a sub-menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.SubContent` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubContent>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.SubContent>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu sub-content component.
+ */
 const ContextMenuSubContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubContent>
@@ -54,6 +87,13 @@ const ContextMenuSubContent = React.forwardRef<
 ))
 ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName
 
+/**
+ * The content of a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.Content` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.Content>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu content component.
+ */
 const ContextMenuContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>
@@ -71,6 +111,14 @@ const ContextMenuContent = React.forwardRef<
 ))
 ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName
 
+/**
+ * An item in a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.Item` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the item should be inset.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.Item>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu item component.
+ */
 const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> & {
@@ -89,6 +137,13 @@ const ContextMenuItem = React.forwardRef<
 ))
 ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName
 
+/**
+ * A checkbox item in a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.CheckboxItem` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.CheckboxItem>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu checkbox item component.
+ */
 const ContextMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.CheckboxItem>
@@ -113,6 +168,13 @@ const ContextMenuCheckboxItem = React.forwardRef<
 ContextMenuCheckboxItem.displayName =
   ContextMenuPrimitive.CheckboxItem.displayName
 
+/**
+ * A radio item in a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.RadioItem` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.RadioItem>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu radio item component.
+ */
 const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
@@ -135,6 +197,14 @@ const ContextMenuRadioItem = React.forwardRef<
 ))
 ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName
 
+/**
+ * A label in a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.Label` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & { inset?: boolean }} props - The props for the component.
+ * @param {boolean} [props.inset] - Whether the label should be inset.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.Label>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu label component.
+ */
 const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & {
@@ -153,6 +223,13 @@ const ContextMenuLabel = React.forwardRef<
 ))
 ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName
 
+/**
+ * A separator in a context menu.
+ * It forwards a ref to the underlying `ContextMenuPrimitive.Separator` element.
+ * @param {React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>} props - The props for the component.
+ * @param {React.Ref<React.ElementRef<typeof ContextMenuPrimitive.Separator>>} ref - The ref to forward to the component.
+ * @returns {JSX.Element} The rendered context menu separator component.
+ */
 const ContextMenuSeparator = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>
@@ -165,6 +242,11 @@ const ContextMenuSeparator = React.forwardRef<
 ))
 ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName
 
+/**
+ * A component to display a keyboard shortcut in a context menu.
+ * @param {React.HTMLAttributes<HTMLSpanElement>} props - The props for the component.
+ * @returns {JSX.Element} The rendered context menu shortcut component.
+ */
 const ContextMenuShortcut = ({
   className,
   ...props
